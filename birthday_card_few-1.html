@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>สุขสันต์วันเกิดนะฟิว 💗</title>
+<style>
+:root{--pink:#ff8eb5;--deep:#a83e70;--cream:#fff7fb}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:system-ui,-apple-system,"Noto Sans Thai",sans-serif;color:#713b56;background:radial-gradient(circle at top,#fff 0,#ffeaf3 55%,#ffd9e8 100%);display:flex;align-items:center;justify-content:center;padding:22px}
+main{width:min(100%,520px);text-align:center;background:#ffffffd9;border:2px solid #fff;border-radius:28px;padding:25px 20px 30px;box-shadow:0 16px 45px #c45d8530}
+h1{font-size:clamp(26px,6vw,36px);margin:0 0 8px;color:var(--deep)}
+p{line-height:1.8}
+.hint{margin:0 0 15px;color:#98617a}
+.cake-button{border:0;background:transparent;cursor:pointer;padding:8px;display:block;margin:0 auto}
+.cake{font-size:105px;line-height:1.25;filter:drop-shadow(0 8px 5px #d98ba944);transition:transform .25s}
+.cake-button:active .cake{transform:scale(.92)}
+.small{font-size:14px;color:#98617a}
+#cakeNote{min-height:28px;font-weight:700;color:#b34e7b}
+.envelope-wrap{margin:18px auto 0;max-width:360px}
+.envelope{position:relative;width:100%;height:175px;border:0;background:transparent;cursor:pointer;perspective:700px}
+.env-body{position:absolute;inset:25px 10px 8px;background:#ffc0d7;border-radius:10px;box-shadow:0 7px 15px #b54e7820}
+.env-flap{position:absolute;top:25px;left:10px;right:10px;height:100px;background:#ff9fc3;clip-path:polygon(0 0,100% 0,50% 78%);transform-origin:top;transition:transform .6s;z-index:3}
+.env-heart{position:absolute;z-index:4;left:0;right:0;top:70px;font-size:32px;transition:opacity .2s}
+.letter{display:none;text-align:left;white-space:pre-wrap;background:#fffafc;border:1px solid #ffd2e2;border-radius:16px;padding:18px;margin-top:8px;line-height:1.95;box-shadow:0 6px 20px #bd60851a}
+.open .env-flap{transform:rotateX(180deg);z-index:0}
+.open .env-heart{opacity:0}
+.open .letter{display:block;animation:rise .6s ease}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+footer{font-size:13px;color:#a96a86;margin-top:22px}
+</style>
+</head>
+<body>
+<main>
+  <h1>สุขสันต์วันเกิดนะฟิว 💗</h1>
+  <p class="hint">มีของขวัญเล็ก ๆ จากต้นให้ฟิว 🎁</p>
+  <button class="cake-button" id="cakeBtn" aria-label="แตะเค้กวันเกิด">
+    <div class="cake">🎂</div>
+    <div class="small">แตะเค้กเพื่ออธิษฐาน ✨</div>
+  </button>
+  <div id="cakeNote">ขอให้ฟิวมีความสุขมาก ๆ นะ</div>
+  <div class="envelope-wrap" id="envWrap">
+    <p><b>💌 จดหมายจากต้น</b></p>
+    <button class="envelope" id="envBtn" aria-label="เปิดจดหมาย">
+      <span class="env-body"></span><span class="env-flap"></span><span class="env-heart">💗</span>
+    </button>
+    <div class="small">แตะซองจดหมายเพื่อเปิดอ่านข้อความ</div>
+    <div class="letter" id="letter">สุขสันต์วันเกิดนะฟิว ตันรักฟิวที่สุดเลย ไม่สามารถหาใครมาแทนได้ ต้นอยากจะบอกว่า วันเกิดนี้ต้นไม่มีอะไรให้ ต้นขอแค่ฟิวอย่าทิ้งต้นไปไหน อยู่ด้วยกันนานๆ มีอะไรคุยกัน ต้นรักฟิวตะเม๋อนะกั๊บ 💗</div>
+  </div>
+  <footer>ทำด้วยความตั้งใจ จากต้นถึงฟิว ♡</footer>
+</main>
+<script>
+const cakeBtn=document.getElementById('cakeBtn');
+const cakeNote=document.getElementById('cakeNote');
+let tapped=false;
+cakeBtn.addEventListener('click',()=>{
+  tapped=!tapped;
+  cakeNote.textContent=tapped?'เย้! 🎉 ขอให้คำอธิษฐานของฟิวเป็นจริงนะ 💖':'ขอให้ฟิวมีความสุขมาก ๆ นะ';
+  cakeBtn.querySelector('.cake').textContent=tapped?'🎂✨':'🎂';
+});
+document.getElementById('envBtn').addEventListener('click',()=>{
+  document.getElementById('envWrap').classList.toggle('open');
+});
+</script>
+</body>
+</html>
